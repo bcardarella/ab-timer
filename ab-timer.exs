@@ -10,8 +10,11 @@ defmodule AbWorkout do
 
   def get_ready()  do
     say("Get ready for ab work out. Starting in...")
+    count(5)
+  end
 
-    10..1
+  def count(count) do
+    count..1
     |> Enum.each(fn(n) ->
       n
       |> Integer.to_string()
@@ -29,9 +32,13 @@ defmodule AbWorkout do
     half =
       (time / 2)
       |> round()
+
+    remainder = half - 5
     sleep(half)
     say("#{half} seconds remaining...")
-    sleep(half)
+    sleep(remainder)
+    count(5)
+
     say("Done with #{name}")
   end
 
